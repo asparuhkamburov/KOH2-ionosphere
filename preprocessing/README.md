@@ -147,5 +147,12 @@ See `VALIDATION.md` for the checksums and validation scope.
 
 The legacy `*.YYo` + CRUX header-harmonization/RINEX-3 standardization path
 has also been spot-checked against the corresponding direct GFZRNX command.
-The remaining wrapper not yet independently spot-checked is the Trimble
-T02 -> RINEX conversion wrapper.
+
+The Trimble T02 -> RINEX wrapper was independently spot-checked on
+`25010100A.T02`; its generated RINEX observation body was bit-for-bit
+identical to the output produced by the same Trimble ConvertToRINEX command
+executed directly.
+
+Together, the representative tests cover all main preprocessing components
+used in the publication-oriented workflow. See `VALIDATION.md` for exact
+checksums and scope limitations.
