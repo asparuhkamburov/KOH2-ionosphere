@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the archived monograph release."
+title: "KOH2 GNSS Ionospheric TEC Processing and Validation Scripts"
+type: software
+version: "1.0.0"
+date-released: "2026-08-25"
+authors:
+  - family-names: "REPLACE_WITH_FAMILY_NAME"
+    given-names: "REPLACE_WITH_GIVEN_NAME"

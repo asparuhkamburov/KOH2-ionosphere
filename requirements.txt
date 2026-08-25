@@ -1,0 +1,4 @@
+# Minimal direct Python dependencies for process_koh2_pyoasis.py
+# Pin exact tested versions before the monograph release.
+requests
+pyOASIS
