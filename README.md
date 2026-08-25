@@ -1,171 +1,113 @@
-# KOH2 GNSS Ionospheric Processing
+# KOH2 GNSS Ionospheric TEC Processing and Validation
 
-Reproducible processing scripts used for the analysis of GNSS-derived
-ionospheric TEC at station **KOH2**, Livingston Island, Antarctica.
+Publication-oriented processing and analysis scripts supporting the KOH2 GNSS ionospheric TEC study at Livingston Island, Antarctica.
 
-This repository is intended to accompany a scientific monograph and related
-publications. The repository should contain the authors' processing and
-analysis code, but **not** redistribute third-party executables, third-party
-datasets, Earthdata credentials, or the full GNSS observation archive.
+The repository documents the reproducible software workflow from RINEX preparation through pyOASIS and PyTECGg TEC estimation, external GNSS TEC comparisons, PyIRI climatological context, and Solar Cycle 25 / geomagnetic-association analyses for 2019–2026.
 
-## Processing chain
-
-The observational workflow is:
+## Repository structure
 
 ```text
-Trimble Alloy
-    |
-    +-- T02 hourly raw files
-    |
-    +-- Trimble Convert To RINEX
-    |
-    +-- RINEX 3.04
-    |
-    +-- GFZRNX + project scripts
-    |      - header harmonization
-    |      - file naming
-    |      - concatenation to daily files
-    |      - subsampling where required
-    |      - RINEX-version conversion where required
-    |
-    +-- PyTECGg / pyOASIS
-    |
-    +-- TEC validation and Solar Cycle 25 analysis
+KOH2-ionosphere/
+├── preprocessing/
+├── pyoasis/
+├── pytecgg/
+├── analysis/
+│   ├── igs_validation/
+│   ├── madrigal_validation/
+│   ├── pyiri_context/
+│   │   └── common_hour/
+│   ├── solar_cycle/
+│   │   └── figures/
+│   └── high_rate_10hz/
+├── README.md
+├── VALIDATION_STATUS.md
+├── RELEASE_CHECKLIST.md
+├── CITATION.cff
+├── requirements.txt
+└── .gitignore
 ```
 
-## `process_koh2_pyoasis.py`
+Each validated module contains its own `README.md` and/or `VALIDATION.md` with method-specific details and validation scope.
 
-This is the publication-oriented version of the annual pyOASIS automation
-script. It reproduces the operational processing sequence used by the project:
-
-1. traverse the `YEAR/MONTH/DAY` archive;
-2. select a suitable daily/partial-day RINEX observation file;
-3. obtain the corresponding GFZ MGEX rapid SP3 orbit from CDDIS;
-4. prepare a short-name RINEX 2.x staging file with GFZRNX;
-5. run:
-   - `SP3intp`
-   - `RNXclean`
-   - `RNXlevelling`
-   - `ROTIcalc`
-   - `DTECcalc`
-   - `SIDXcalc`
-   - `TECcalc`;
-6. skip a day when the expected final TEC output is already present, unless
-   `--force` is supplied.
-
-### Example on Windows
-
-```bat
-python -m py_compile process_koh2_pyoasis.py
-
-python process_koh2_pyoasis.py ^
-  --year 2023 ^
-  --data-root "E:\KOH2data\pyOASIS" ^
-  --gfzrnx "D:\GNSS\gfzrnx_2.2.0_win10_64.exe"
-```
-
-`--data-root` may also point directly to the annual folder:
-
-```bat
-python process_koh2_pyoasis.py ^
-  --year 2023 ^
-  --data-root "E:\KOH2data\pyOASIS\2023" ^
-  --gfzrnx "D:\GNSS\gfzrnx_2.2.0_win10_64.exe"
-```
-
-### Environment-variable alternative
-
-```bat
-set KOH2_DATA_ROOT=E:\KOH2data\pyOASIS
-set GFZRNX_PATH=D:\GNSS\gfzrnx_2.2.0_win10_64.exe
-
-python process_koh2_pyoasis.py --year 2023
-```
-
-## External dependencies
-
-The workflow relies on external software/data services that are **not**
-distributed in this repository:
-
-- Trimble Convert To RINEX
-- GFZRNX
-- pyOASIS
-- NASA CDDIS / Earthdata access for precise GNSS products
-
-Earthdata authentication should be configured outside the source code, for
-example through the user's `.netrc` / `_netrc` file.
-
-## Data organization
-
-Expected annual structure:
+## Scientific workflow
 
 ```text
-<DATA_ROOT>\
-  2023\
-    01\
-      01\
-        RINEX\
-        PRODUCTS\
-        pyOASIS_INPUT\
-        pyOASIS_OUTPUT\
-      02\
-        ...
-    02\
-      ...
+Trimble / RINEX observations
+        |
+        v
+preprocessing
+        |
+        +-------------------+
+        |                   |
+        v                   v
+     pyOASIS             PyTECGg
+        |                   |
+        +---------+---------+
+                  |
+                  v
+         external TEC comparison
+         IGS / multi-GIM / Madrigal
+                  |
+                  v
+          PyIRI common-hour context
+                  |
+                  v
+       Solar Cycle 25 / geomagnetic
+       analysis, sensitivity, bootstrap
 ```
 
-Only the `RINEX` observation input is required initially. Product/input/output
-folders are created as needed.
+## Validation status
 
+The principal publication workflows are validated against their operational implementations. Validation scope differs by module and is stated explicitly; representative-day validation must not be interpreted as whole-archive checksum validation.
 
-## Validation of the refactored workflow
+| Module | Status | Validation scope |
+| --- | --- | --- |
+| Preprocessing | PASS | Representative 2019/2025 cases and GFZRNX/T02 equivalence checks |
+| pyOASIS | PASS | 2025-01-01 final TEC bit-for-bit equivalence |
+| PyTECGg | PASS | 2025-01-01 TEC and VEq bit-for-bit equivalence |
+| IGS Final GIM | PASS | Representative 2025-01-01 wrapper/output equivalence |
+| Multi-GIM (CODE/ESA/JPL/UPC) | PASS | Representative 2025-01-01, 12 comparison rows |
+| Madrigal | PASS | Representative 2025-01-01 numerical equivalence |
+| PyIRI climatological context | PASS | Representative 2025-01-01 hourly output equivalence |
+| PyIRI strict common-hour layer | PASS | Representative 2025-01-01 exact table equality |
+| Solar Cycle 25 main analysis | PASS | Complete supplied dataset; 9/9 compared CSV products exactly equal |
+| Solar sensitivity analysis | PASS | Operational vs publication CSV equality |
+| Lagged bootstrap analysis | PASS | Operational vs publication CSV equality |
+| Monthly/figure suite | PASS | Numerical CSV products exactly equal; rendered images excluded from bit-for-bit checks |
+| High-rate 10 Hz scintillation | PENDING | Implementation available separately; numerical equivalence not established |
 
-The publication-oriented script was functionally checked against an existing
-operational pyOASIS result for **KOH2, 2025-01-01 (DOY 001)**.
+See `VALIDATION_STATUS.md` for the consolidated record.
 
-The refactored workflow completed the full processing chain and generated:
+## Interpretation safeguards
 
-```text
-KOH2_001_2025_L1L2.TEC
-```
+- **PyIRI is climatological context, not an independent solar-activity validation.** Daily F10.7 is an input to the model.
+- **CODE/ESA/JPL/UPC are a multi-GIM/inter-product robustness comparison**, not four independent validations.
+- **Madrigal is an observation-derived external GNSS processing chain.** Its degree of independence depends on the contributing receiver network.
+- The direct **IGS–Madrigal** comparison is a reference-product diagnostic.
+- Solar and geomagnetic findings should be described as **associations/relationships**, not causal effects without a separate causal design.
+- No empirical TEC bias correction is applied in the publication workflow.
+- `S4_CNO_PROXY` from the high-rate workflow is an **uncalibrated proxy**, not a standard ISMR S4 index.
 
-The final TEC file was compared with the previously generated operational
-result using SHA-256. Both files produced the identical checksum:
+## Data and external software
 
-```text
-4280d8a6451adc158cb0b37f350f5b67ef45482587d57e6f6b7096dcfac5634f
-```
+Raw GNSS observations, downloaded geophysical products, caches, credentials, and generated result archives are intentionally not distributed in this source repository.
 
-This confirms bit-for-bit identity of the final TEC output for the validation
-day.
+External tools/services used by parts of the workflow include GFZRNX, pyOASIS, IGS/CDDIS products, Madrigal, NASA/SPDF OMNI, WDC-SILSO, and PyIRI. Refer to the module documentation for required inputs and access requirements.
 
-The script also supports a restricted single-day test through:
+## Python environment
+
+The scripts were developed and tested in the project Python environment. A broad dependency list is provided in `requirements.txt`; before archival publication, freeze the exact tested environment if strict environment reproduction is required.
+
+Syntax checking for an individual script can be performed with:
 
 ```bat
-python process_koh2_pyoasis.py ^
-  --year 2025 ^
-  --date 2025-01-01 ^
-  --data-root "D:\path\to\data" ^
-  --gfzrnx "D:\path\to\gfzrnx.exe"
+python -m py_compile path\to\script.py
 ```
 
-## Reproducibility
+## Reproducibility and figures
 
-Before creating the monograph release:
+Numerical validation is performed on CSV/Parquet/TEC products as appropriate. PNG/PDF/SVG files are not used for bit-for-bit equivalence because rendering metadata can vary with Matplotlib, fonts, and platform while underlying numerical data remain identical.
 
-1. verify the code against the final processing environment;
-2. record exact package versions;
-3. create a tagged GitHub release, e.g. `v1.0-monograph`;
-4. archive that release in Zenodo;
-5. cite the resulting DOI in the monograph.
+## Release status
 
-## Citation
-
-A `CITATION.cff` template is included. Replace the author placeholders and,
-after archiving the release, add the final DOI and repository URL.
-
-## License
-
-Choose and add a software license before public release. MIT or BSD-3-Clause
-are common permissive choices, but the final choice should reflect the
-authors' and institution's requirements.
+This package is a **release candidate** for GitHub/Zenodo archiving. Before public release, complete the author metadata in `CITATION.cff`, choose and add a license, freeze/version the environment as desired, add the repository URL, create the release tag, and insert the Zenodo DOI after deposition. See `RELEASE_CHECKLIST.md`.
