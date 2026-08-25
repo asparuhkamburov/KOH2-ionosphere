@@ -23,6 +23,7 @@ KOH2-ionosphere/
 ├── RELEASE_CHECKLIST.md
 ├── SOFTWARE_CITATIONS.md
 ├── CITATION.cff
+├── LICENSE
 ├── requirements.txt
 └── .gitignore
 ```
@@ -96,19 +97,6 @@ External scientific software used to produce results should be cited separately 
 
 External data products and services used by parts of the workflow include IGS/CDDIS products, Madrigal, NASA/SPDF OMNI, and WDC-SILSO. Refer to the module documentation for required inputs and access requirements.
 
-## License
-
-The original source code in this repository is released under the
-GNU General Public License v3.0 or later (GPL-3.0-or-later).
-
-This license applies only to source code authored for the KOH2 workflow.
-
-Third-party software used by the workflow, including GFZRNX, PyTECGg,
-and pyOASIS/OASIS, is not redistributed by this repository and remains
-subject to its respective license terms.
-
-See `SOFTWARE_CITATIONS.md` for software attribution and citation details.
-
 ## External software citations
 
 When publishing results produced with this workflow, please cite the relevant third-party software in addition to citing this repository.
@@ -135,26 +123,32 @@ python -m py_compile path\to\script.py
 
 Numerical validation is performed on CSV/Parquet/TEC products as appropriate. PNG/PDF/SVG files are not used for bit-for-bit equivalence because rendering metadata can vary with Matplotlib, fonts, and platform while underlying numerical data remain identical.
 
-## Citing this repository
-
-The `CITATION.cff` file contains the citation metadata for this repository itself.
-
-Third-party software used by the workflow must be cited separately; see `SOFTWARE_CITATIONS.md`.
-
 ## AI-assisted development
 
-Parts of the source code and documentation in this repository were developed
-with assistance from OpenAI ChatGPT.
+Parts of the source code and documentation in this repository were developed with assistance from OpenAI ChatGPT.
 
-The scientific workflow, processing parameters, validation design,
-interpretation, testing, and final review were performed by the repository
-author. AI-generated or AI-assisted code was reviewed, modified where
-necessary, and validated against the operational processing results before
-inclusion in the publication-oriented repository.
+The scientific workflow, processing parameters, validation design, interpretation, testing, and final review were performed by the repository author. AI-generated or AI-assisted code was reviewed, modified where necessary, and validated against the operational processing results before inclusion in the publication-oriented repository.
 
-The author takes responsibility for the released software and its scientific
-use.
+The author takes responsibility for the released software and its scientific use.
+
+## License
+
+The original source code authored for the KOH2 workflow is released under the **GNU General Public License v3.0 or later (GPL-3.0-or-later)**.
+
+Copyright (C) 2026 Asparuh Kamburov.
+
+Third-party software used by the workflow, including GFZRNX, PyTECGg, and pyOASIS/OASIS, is not redistributed by this repository and remains subject to its respective licence terms.
+
+See `LICENSE` for the GPLv3 text and `SOFTWARE_CITATIONS.md` for third-party software attribution and citation details.
+
+## Citing this repository
+
+The `CITATION.cff` file contains citation metadata for this repository itself.
+
+Third-party scientific software used by the workflow must be cited separately; see `SOFTWARE_CITATIONS.md`.
 
 ## Release status
 
-This package is a **release candidate** for GitHub/Zenodo archiving. Before public release, complete the author metadata in `CITATION.cff`, choose and add a license, freeze/version the environment as desired, add the repository URL, create the release tag, and insert the Zenodo DOI after deposition. See `RELEASE_CHECKLIST.md`.
+This repository is being prepared for GitHub/Zenodo archival release. Author metadata, third-party software citations, AI-assisted development disclosure, and the GPL-3.0-or-later licence are documented.
+
+Before archival publication, add the final GitHub repository URL, create the release tag/version, add the release date/version metadata to `CITATION.cff`, and insert the Zenodo DOI after deposition. See `RELEASE_CHECKLIST.md`.

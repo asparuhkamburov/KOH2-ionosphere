@@ -11,21 +11,25 @@
 - [x] Solar Cycle 25 analytical core validated against operational outputs.
 - [x] Solar figure suite 01–04 numerical support tables validated against operational outputs.
 - [x] Scientific wording reviewed to distinguish validation, inter-product comparison, climatological context, and association from causation.
-- [x] Raw GNSS data, downloaded caches, credentials, and generated result archives excluded from the source package.
+- [x] Raw GNSS data, downloaded caches, credentials, and generated result archives excluded from the source repository.
+- [x] Author metadata and ORCID added to `CITATION.cff`.
+- [x] GPL-3.0-or-later selected and `LICENSE` added.
+- [x] External software citations documented in `SOFTWARE_CITATIONS.md`.
+- [x] AI-assisted development disclosure added to the root `README.md`.
+- [x] High-rate 10 Hz material excluded from the current validated public release.
 
 ## Required before public GitHub / Zenodo release
 
-- [ ] Replace the author placeholders in `CITATION.cff` with the intended release authors.
-- [ ] Choose and add an explicit software license (`LICENSE`).
 - [ ] Add the final GitHub repository URL to release metadata/documentation.
-- [ ] Decide whether to freeze exact Python package versions and, if so, generate an environment lock/requirements freeze from the validated environment.
-- [ ] Create the final release tag/version.
-- [ ] Deposit the tagged release in Zenodo and add the DOI to `CITATION.cff` / README.
-- [ ] Review third-party software/data citation requirements for GFZRNX, pyOASIS, IGS/CDDIS, Madrigal, NASA/SPDF OMNI, WDC-SILSO, and PyIRI.
+- [ ] Decide whether to freeze exact Python package versions and, if desired, generate a requirements/environment freeze from the validated environment.
+- [ ] Create the final release tag/version (for example `v1.0.0`).
+- [ ] Add the final `version` and `date-released` fields to `CITATION.cff`.
+- [ ] Create/archive the GitHub release in Zenodo.
+- [ ] Add the Zenodo DOI to `CITATION.cff` and the root `README.md`.
+- [ ] Perform a final check that repository links, citations, licence references, and module paths resolve correctly.
 
-## High-rate 10 Hz block
+## Third-party software and data
 
-The high-rate scintillation block remains outside the validated-release claim. Either:
+Before manuscript submission, verify that the bibliography contains the citations required for the external software and data products actually used in the reported analyses.
 
-- complete and document its numerical-equivalence validation before promoting it to validated status; or
-- retain the explicit `PENDING` status in `analysis/high_rate_10hz/STATUS.md` for the public release.
+Current software citation guidance is collected in `SOFTWARE_CITATIONS.md`.

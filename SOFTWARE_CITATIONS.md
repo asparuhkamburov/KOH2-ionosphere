@@ -70,6 +70,12 @@ Because the project currently labels the manuscript as submitted, users should c
 
 ---
 
+## Licensing note
+
+The KOH2-authored source code in this repository is released under GPL-3.0-or-later.
+
+This repository does not relicense third-party software. GFZRNX, PyTECGg, pyOASIS/OASIS, and other external dependencies remain governed by their own licence terms.
+
 ## How these citations relate to CITATION.cff
 
 `CITATION.cff` describes how to cite the **KOH2 repository itself**.
