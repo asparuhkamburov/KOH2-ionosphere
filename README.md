@@ -128,6 +128,20 @@ The `CITATION.cff` file contains the citation metadata for this repository itsel
 
 Third-party software used by the workflow must be cited separately; see `SOFTWARE_CITATIONS.md`.
 
+## AI-assisted development
+
+Parts of the source code and documentation in this repository were developed
+with assistance from OpenAI ChatGPT.
+
+The scientific workflow, processing parameters, validation design,
+interpretation, testing, and final review were performed by the repository
+author. AI-generated or AI-assisted code was reviewed, modified where
+necessary, and validated against the operational processing results before
+inclusion in the publication-oriented repository.
+
+The author takes responsibility for the released software and its scientific
+use.
+
 ## Release status
 
 This package is a **release candidate** for GitHub/Zenodo archiving. Before public release, complete the author metadata in `CITATION.cff`, choose and add a license, freeze/version the environment as desired, add the repository URL, create the release tag, and insert the Zenodo DOI after deposition. See `RELEASE_CHECKLIST.md`.
