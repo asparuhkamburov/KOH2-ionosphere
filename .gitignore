@@ -1,0 +1,46 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+pytecgg_env/
+gnsstec_env/
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Credentials - never commit
+.env
+.netrc
+_netrc
+
+# Temporary downloads
+*.part
+
+# Raw / derived GNSS data - keep outside the code repository
+*.T02
+*.t02
+*.rnx
+*.RINEX
+*.crx
+*.SP3
+*.sp3
+*.CLK
+*.clk
+*.gz
+*.Z
+
+# Generated processing directories
+PRODUCTS/
+pyOASIS_INPUT/
+pyOASIS_OUTPUT/
+
+# Generated plots/tables
+MONOGRAPH_FIGURES/
+*.png
+*.pdf
+*.svg
