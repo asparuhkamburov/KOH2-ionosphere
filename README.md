@@ -16,9 +16,8 @@ KOH2-ionosphere/
 │   ├── madrigal_validation/
 │   ├── pyiri_context/
 │   │   └── common_hour/
-│   ├── solar_cycle/
-│   │   └── figures/
-│   └── high_rate_10hz/
+│   └── solar_cycle/
+│       └── figures/
 ├── README.md
 ├── VALIDATION_STATUS.md
 ├── RELEASE_CHECKLIST.md
@@ -74,7 +73,6 @@ The principal publication workflows are validated against their operational impl
 | Solar sensitivity analysis | PASS | Operational vs publication CSV equality |
 | Lagged bootstrap analysis | PASS | Operational vs publication CSV equality |
 | Monthly/figure suite | PASS | Numerical CSV products exactly equal; rendered images excluded from bit-for-bit checks |
-| High-rate 10 Hz scintillation | PENDING | Implementation available separately; numerical equivalence not established |
 
 See `VALIDATION_STATUS.md` for the consolidated record.
 
@@ -86,7 +84,6 @@ See `VALIDATION_STATUS.md` for the consolidated record.
 - The direct **IGS–Madrigal** comparison is a reference-product diagnostic.
 - Solar and geomagnetic findings should be described as **associations/relationships**, not causal effects without a separate causal design.
 - No empirical TEC bias correction is applied in the publication workflow.
-- `S4_CNO_PROXY` from the high-rate workflow is an **uncalibrated proxy**, not a standard ISMR S4 index.
 
 ## Data and external software
 
