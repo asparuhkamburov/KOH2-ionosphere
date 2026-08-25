@@ -134,12 +134,16 @@ generated products remain outside the source-code repository.
 
 ## Validation status
 
-The hourly-to-daily 10 Hz -> 1 Hz -> 30 s path was validated for KOH2
-2025-01-01 (DOY 001). The RINEX observation bodies of both the daily 1 s and
-daily 30 s products were bit-for-bit identical to the historical operational
-products.
+The hourly-to-daily preprocessing path has been validated for both principal
+KOH2 sampling regimes:
+
+- 2019-12-28 (DOY 362): hourly 1 Hz -> daily 1 s -> daily 30 s;
+- 2025-01-01 (DOY 001): hourly 10 Hz -> daily 1 s -> daily 30 s.
+
+For both validation days, the RINEX observation bodies of the generated daily
+products were bit-for-bit identical to the historical operational products.
 
 See `VALIDATION.md` for the checksums and validation scope.
 
-Before the final monograph release, at least one representative 1 Hz day and
-the legacy header-harmonization path should also be spot-checked.
+Before the final monograph release, the remaining legacy `*.YYo` + CRUX
+header-harmonization/RINEX-3 standardization path should also be spot-checked.
