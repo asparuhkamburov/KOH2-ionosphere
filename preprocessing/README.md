@@ -145,5 +145,7 @@ products were bit-for-bit identical to the historical operational products.
 
 See `VALIDATION.md` for the checksums and validation scope.
 
-Before the final monograph release, the remaining legacy `*.YYo` + CRUX
-header-harmonization/RINEX-3 standardization path should also be spot-checked.
+The legacy `*.YYo` + CRUX header-harmonization/RINEX-3 standardization path
+has also been spot-checked against the corresponding direct GFZRNX command.
+The remaining wrapper not yet independently spot-checked is the Trimble
+T02 -> RINEX conversion wrapper.

@@ -131,3 +131,67 @@ operational observation bodies for both principal KOH2 sampling regimes:
 The remaining preprocessing path that has not yet been independently spot-
 checked is the legacy `*.YYo` -> CRUX header harmonization / RINEX 3
 standardization stage.
+
+
+## Legacy RINEX 2 + CRUX wrapper validation
+
+The legacy preprocessing stage was spot-checked using:
+
+```text
+koh23620.19o
+```
+
+The publication-oriented Python wrapper executed the same GFZRNX operation as
+the historical batch workflow:
+
+```text
+-finp koh23620.19o
+-fout ::RX3::00,ATA
+-crux KOH2.crux
+-hded
+-site KOH2
+-f
+```
+
+The wrapper-generated RINEX 3 observation body was compared with the output
+from the same GFZRNX command executed manually on the same input file.
+
+Both observation bodies produced the SHA-256 checksum:
+
+```text
+3ebc73e3ce79a66e338ff524a9e2468c51cbcfd4445e9a88bac8abe1294debab
+```
+
+Result: **bit-for-bit identical observation body** between the Python wrapper
+and the direct historical GFZRNX command.
+
+The CRUX-updated header fields were also verified:
+
+```text
+MARKER NAME         KOH200ATA
+MARKER NUMBER       66026M002
+APPROX POSITION XYZ 1453335.2992 -2554570.1548 -5641700.7402
+```
+
+These values matched the corresponding historical RINEX 3 product.
+
+### Interpretation
+
+The publication-oriented wrapper reproduces the legacy GFZRNX
+RINEX-2-to-RINEX-3/header-harmonization operation for the tested file.
+
+A different observation-body checksum was obtained when this converted legacy
+file was compared with the independently generated daily 30 s product from the
+hourly-data concatenation workflow. That comparison is not an equivalence test,
+because the two products originate from different preprocessing paths.
+
+## Validation summary
+
+Validated publication-wrapper paths:
+
+- legacy RINEX 2 -> RINEX 3 + KOH2 CRUX: validated on `koh23620.19o`;
+- hourly 1 Hz -> daily 1 s -> daily 30 s: validated on 2019-12-28;
+- hourly 10 Hz -> daily 1 s -> daily 30 s: validated on 2025-01-01.
+
+The separate Trimble T02 -> RINEX Python wrapper has not yet been independently
+spot-checked against the historical batch wrapper.
