@@ -96,6 +96,19 @@ External scientific software used to produce results should be cited separately 
 
 External data products and services used by parts of the workflow include IGS/CDDIS products, Madrigal, NASA/SPDF OMNI, and WDC-SILSO. Refer to the module documentation for required inputs and access requirements.
 
+## License
+
+The original source code in this repository is released under the
+GNU General Public License v3.0 or later (GPL-3.0-or-later).
+
+This license applies only to source code authored for the KOH2 workflow.
+
+Third-party software used by the workflow, including GFZRNX, PyTECGg,
+and pyOASIS/OASIS, is not redistributed by this repository and remains
+subject to its respective license terms.
+
+See `SOFTWARE_CITATIONS.md` for software attribution and citation details.
+
 ## External software citations
 
 When publishing results produced with this workflow, please cite the relevant third-party software in addition to citing this repository.
