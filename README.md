@@ -21,6 +21,7 @@ KOH2-ionosphere/
 ├── README.md
 ├── VALIDATION_STATUS.md
 ├── RELEASE_CHECKLIST.md
+├── SOFTWARE_CITATIONS.md
 ├── CITATION.cff
 ├── requirements.txt
 └── .gitignore
@@ -89,7 +90,23 @@ See `VALIDATION_STATUS.md` for the consolidated record.
 
 Raw GNSS observations, downloaded geophysical products, caches, credentials, and generated result archives are intentionally not distributed in this source repository.
 
-External tools/services used by parts of the workflow include GFZRNX, pyOASIS, IGS/CDDIS products, Madrigal, NASA/SPDF OMNI, WDC-SILSO, and PyIRI. Refer to the module documentation for required inputs and access requirements.
+Parts of the workflow rely on third-party scientific software, including GFZRNX, pyOASIS/OASIS, and PyTECGg. These packages and executables are not redistributed by this repository unless explicitly stated. Users should obtain them from their official distribution channels and comply with their respective licence terms.
+
+External scientific software used to produce results should be cited separately from this repository. The recommended citations and project links are collected in `SOFTWARE_CITATIONS.md`.
+
+External data products and services used by parts of the workflow include IGS/CDDIS products, Madrigal, NASA/SPDF OMNI, and WDC-SILSO. Refer to the module documentation for required inputs and access requirements.
+
+## External software citations
+
+When publishing results produced with this workflow, please cite the relevant third-party software in addition to citing this repository.
+
+Key software citations include:
+
+- **GFZRNX** — Nischan, T. (2016). *GFZRNX - RINEX GNSS Data Conversion and Manipulation Toolbox*. GFZ Data Services. https://doi.org/10.5880/GFZ.1.1.2016.002
+- **PyTECGg** — Ventriglia, V., Guerra, M., Okoh, D., Vermicelli, P., Ciraolo, L., & Cesaroni, C. (2026). *PyTECGg: total electron content calibration with GNSS data*. SoftwareX, 34, 102737. https://doi.org/10.1016/j.softx.2026.102737
+- **pyOASIS / OASIS** — use the current citation instructions supplied by the OASIS project. At the time this repository documentation was prepared, the project listed the manuscript *Introducing OASIS: An Open-Access System for Ionospheric Studies* as submitted, together with a software-repository citation.
+
+See `SOFTWARE_CITATIONS.md` for full details.
 
 ## Python environment
 
@@ -104,6 +121,12 @@ python -m py_compile path\to\script.py
 ## Reproducibility and figures
 
 Numerical validation is performed on CSV/Parquet/TEC products as appropriate. PNG/PDF/SVG files are not used for bit-for-bit equivalence because rendering metadata can vary with Matplotlib, fonts, and platform while underlying numerical data remain identical.
+
+## Citing this repository
+
+The `CITATION.cff` file contains the citation metadata for this repository itself.
+
+Third-party software used by the workflow must be cited separately; see `SOFTWARE_CITATIONS.md`.
 
 ## Release status
 
