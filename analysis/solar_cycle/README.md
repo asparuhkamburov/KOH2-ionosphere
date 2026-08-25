@@ -1,89 +1,36 @@
-# KOH2 Solar Cycle 25 monthly VTEC + F10.7
+# KOH2 Solar Cycle 25 analysis
 
-This directory contains the publication-oriented script:
+This directory contains the publication-oriented Solar Cycle 25 / geomagnetic-analysis scripts for KOH2 (2019-2026).
 
-```text
-plot_koh2_monthly_real_vtec_f107.py
-```
+## Main workflow
 
-It uses the validated common-hour table produced by the PyIRI/common-hour
-workflow.
+1. `analyze_koh2_solar_cycle25_2019_2026.py`
+   - builds the daily solar/geomagnetic master table;
+   - merges validated KOH2 common-hour VTEC, optional IGS/Madrigal validation statistics, OMNI2, SYM-H and SILSO data;
+   - calculates F10.7 + seasonal background models, correlations, background residuals, storm/quiet summaries and equal-day yearly summaries.
+2. `analyze_koh2_solar_cycle25_sensitivity.py`
+   - compares ordinary daily OLS with equal-year weighted WLS;
+   - performs pooled and within-year storm/quiet sensitivity analyses with multiple-testing control.
+3. `analyze_koh2_solar_cycle25_lagged_bootstrap.py`
+   - evaluates lag 0/+1/+2 calendar-day geomagnetic associations;
+   - uses year-cluster and 7-day calendar moving-block bootstrap confidence intervals.
+4. `plot_koh2_monthly_real_vtec_f107.py`
+   - creates the validated strict-common-hour monthly VTEC + F10.7 figure and supporting CSV tables.
+5. `figures/`
+   - contains four portable publication figure suites for validation benchmarks, solar/reference divergence, geomagnetic response, and multi-GIM/coverage summaries.
 
-## Recommended scientific product
+`compare_csv_outputs.py` is a validation helper for exact old-vs-new CSV comparisons.
 
-The strict-common-hour result is the recommended direct inter-product figure.
+## Scientific interpretation
 
-The aggregation is:
+- PyIRI is an empirical climatological background, not an independent solar-activity validation, because F10.7 is an input to the model.
+- CODE/ESA/JPL/UPC comparisons are multi-GIM/inter-product robustness checks, not four independent validations.
+- Solar/geomagnetic results should be described as *associated with*, *related to*, or *corresponding to* activity unless a separate causal analysis is performed.
+- No empirical TEC bias correction is applied.
+- Calendar-day lags are true calendar lags, not previous available KOH2 observation rows.
 
-```text
-strict common hourly epochs
--> one daily mean per VTEC product
--> equal-day monthly mean
-```
+## Reproducibility
 
-Therefore each available observation day receives equal weight in the monthly
-mean.
+The publication scripts do not contain machine-specific data paths. Inputs and output locations are supplied using CLI arguments. For strict equivalence testing of the main analysis, reuse the same existing `_INDEX_CACHE` as the operational run so the input index files are identical.
 
-F10.7 is first reduced to one value per day and then averaged monthly.
-
-Missing months are retained as gaps and are not synthetically interpolated.
-Coverage is reported separately through the number of strict common hours and
-common observation days per month.
-
-## Compared series
-
-- PyTECGg VEq
-- IGS Final GIM VTEC at KOH2
-- Madrigal GNSS VTEC near KOH2
-- PyIRI climatological VTEC
-- NASA OMNI daily F10.7
-
-PyIRI is used as empirical climatological context rather than as an independent
-validation product.
-
-## Main outputs
-
-```text
-KOH2_daily_strict_common_hour_means.csv
-KOH2_monthly_strict_common_hour_statistics.csv
-KOH2_monthly_mean_VTEC_F107_strict_common_hours.png
-KOH2_monthly_mean_VTEC_F107_strict_common_hours.pdf
-KOH2_monthly_mean_VTEC_F107_strict_common_hours.svg
-```
-
-An available-data alternative is also produced:
-
-```text
-KOH2_monthly_available_data_statistics.csv
-KOH2_monthly_mean_VTEC_F107_available_data.png
-```
-
-This alternative is descriptive only because the products may use different
-valid epochs. Use the strict-common-hour products for direct inter-product
-comparison.
-
-## Usage
-
-```bat
-python plot_koh2_monthly_real_vtec_f107.py ^
- --input-file "path\to\KOH2_2019_2026_common_hour_values.csv" ^
- --output-dir "path\to\MONTHLY_FIGURES"
-```
-
-If `--output-dir` is omitted, `MONTHLY_FIGURES` is created beside the input
-CSV. The default date window is 2019-01-01 through 2026-12-31.
-
-Optional switches:
-
-```text
---start-date YYYY-MM-DD
---end-date YYYY-MM-DD
---no-sem-bands
---no-high-activity-shading
-```
-
-## Validation
-
-The publication-oriented script passed syntax validation and complete supplied
-dataset numerical equivalence testing against the operational implementation.
-See `VALIDATION.md` for the recorded test and results.
+See `CMD_TEST_COMMANDS.txt` for the Windows CMD test sequence, including the downstream figure-suite checks.
