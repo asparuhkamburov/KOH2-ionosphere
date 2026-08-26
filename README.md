@@ -154,6 +154,16 @@ The `CITATION.cff` file contains citation metadata for this repository itself.
 
 Third-party scientific software used by the workflow must be cited separately; see `SOFTWARE_CITATIONS.md`.
 
+## DOI
+
+Version 1.0.0:
+
+https://doi.org/10.5281/zenodo.22106689
+
+All versions:
+
+https://doi.org/10.5281/zenodo.22106688
+
 ## Release status
 
 This repository is being prepared for GitHub/Zenodo archival release. The high-rate 10 Hz module is included explicitly as EXPERIMENTAL and remains outside the validated `PASS` claims. Author metadata, third-party software citations, AI-assisted development disclosure, and the GPL-3.0-or-later licence are documented.
