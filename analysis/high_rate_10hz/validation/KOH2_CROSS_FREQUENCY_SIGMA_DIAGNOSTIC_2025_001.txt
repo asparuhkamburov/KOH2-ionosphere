@@ -1,0 +1,27 @@
+KOH2 CROSS-FREQUENCY SIGMA_PHI DIAGNOSTIC — 2025-001
+================================================================
+
+Input: final continuous + QC120 + SP3 + elevation>=30 deg output.
+
+Key diagnostic:
+G ALL 2W/1C: N=1568, corr=0.9615, median sigma ratio=0.8001, nondispersive f-ratio=0.7792, ionospheric inverse-f ratio=1.2833
+G ALL 2X/1C: N=5784, corr=0.9537, median sigma ratio=0.7935, nondispersive f-ratio=0.7792, ionospheric inverse-f ratio=1.2833
+G ALL 2X/1X: N=1619, corr=0.9705, median sigma ratio=0.7886, nondispersive f-ratio=0.7792, ionospheric inverse-f ratio=1.2833
+G ALL 5X/1C: N=4083, corr=0.9723, median sigma ratio=0.7463, nondispersive f-ratio=0.7468, ionospheric inverse-f ratio=1.3391
+G ALL 5X/1X: N=1619, corr=0.9818, median sigma ratio=0.7487, nondispersive f-ratio=0.7468, ionospheric inverse-f ratio=1.3391
+R R02 2C/1C: N=277, corr=0.9936, median sigma ratio=0.7868, nondispersive f-ratio=0.7778, ionospheric inverse-f ratio=1.2857
+
+Interpretation:
+The measured cross-frequency sigma ratios are much closer to f_b/f_a
+than to f_a/f_b. In carrier cycles/radians, a nondispersive common range
+or receiver-clock perturbation scales approximately with carrier frequency,
+whereas first-order ionospheric carrier phase scales approximately as 1/f.
+
+This strongly indicates that the present single-frequency SIGMA_PHI_RAD
+contains substantial nondispersive/common-mode receiver-range content.
+Therefore it should NOT be promoted to a physical Phi60 result.
+
+Next method:
+Use dual-frequency geometry-free carrier phase in metres to cancel geometry
+and receiver/satellite clock terms, apply LLI/cycle-slip segmentation, then
+high-pass filtering and a 60-s fluctuation metric.

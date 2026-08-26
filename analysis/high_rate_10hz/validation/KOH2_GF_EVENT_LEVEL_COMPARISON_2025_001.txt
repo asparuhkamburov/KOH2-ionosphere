@@ -1,0 +1,118 @@
+KOH2 2025-001 EVENT-LEVEL GEOMETRY-FREE PHASE COMPARISON
+======================================================================
+
+Target interval
+---------------
+Primary event window: 2025-01-01 16:50-17:10 UTC
+Strict sensitivity case: elevation >= 40 deg
+Metric: SIGMA_PHI_GF_EQUIV_RAD
+Scientific status: EXPERIMENTAL geometry-free phase-fluctuation proxy.
+
+Internal cross-link result
+--------------------------
+The 20-minute event window contains a concentrated cluster of simultaneous
+per-satellite upper-tail excursions.
+
+Using only satellites with >=50 QC-valid observations and defining a high
+link as a minute above that satellite's own full-day 95th percentile:
+
+  pre-event  16:30-16:50 UTC:
+      minutes with >=2 simultaneous high links = 0 / 20
+      mean number of high links per minute      = 0.4
+
+  event      16:50-17:10 UTC:
+      minutes with >=2 simultaneous high links = 8 / 20
+      minutes with >=3 simultaneous high links = 2 / 20
+      mean number of high links per minute      = 1.2
+
+  post-event 17:10-17:30 UTC:
+      minutes with >=2 simultaneous high links = 0 / 20
+      mean number of high links per minute      = 0.3
+
+The strongest overlapping 20-minute cluster anywhere else in the day has
+6 minutes with >=2 simultaneous high links. The 16:50-17:10 cluster reaches 8.
+Overlapping windows centred on the same physical cluster also reach 8.
+
+Window-level statistics (elevation >=40 deg)
+--------------------------------------------
+pre 16:30-16:50:
+  median GF = 0.062817 rad
+  p95 GF    = 0.096902 rad
+  p95 ratio-to-own-satellite-median = 1.149513
+  p95 S4_CNO_PROXY                  = 0.066887
+
+event 16:50-17:10:
+  median GF = 0.061625 rad
+  p95 GF    = 0.100578 rad
+  p95 ratio-to-own-satellite-median = 1.299582
+  p95 S4_CNO_PROXY                  = 0.069756
+
+post 17:10-17:30:
+  median GF = 0.060117 rad
+  p95 GF    = 0.100657 rad
+  p95 ratio-to-own-satellite-median = 1.205282
+  p95 S4_CNO_PROXY                  = 0.054321
+
+Thus, the event is not primarily a shift of the bulk median. It is a
+satellite-subset upper-tail enhancement.
+
+Representative simultaneous links
+----------------------------------
+2025-01-01 16:56 UTC:
+  G01  sigma_GF=0.094270 rad, elev=49.29 deg, 1.545x own median
+  R21  sigma_GF=0.093713 rad, elev=40.91 deg, 1.388x own median
+
+2025-01-01 16:57 UTC:
+  G01  sigma_GF=0.095124 rad, elev=49.72 deg, 1.559x own median
+  G10  sigma_GF=0.080803 rad, elev=41.47 deg, 1.315x own median
+
+2025-01-01 17:04 UTC:
+  R21  sigma_GF=0.091090 rad, elev=45.08 deg, 1.349x own median
+  R04  sigma_GF=0.077432 rad, elev=52.09 deg, 1.301x own median
+
+Independent geomagnetic context
+-------------------------------
+NOAA/SWPC planetary Kp for the 15-18 UTC synoptic interval was 8.0 (G4 range).
+
+The archived real-time Dst series has:
+  15 UTC: -220 nT
+  16 UTC: -221 nT
+  17 UTC: -198 nT
+  18 UTC: -160 nT
+
+Therefore the 16:50-17:10 UTC KOH2 cluster occurred immediately after the
+storm-time Dst minimum, during the beginning of Dst recovery, while the
+planetary Kp interval remained at 8.
+
+NOAA reported that the G4 Severe alert threshold itself was reached at
+17:41 UTC (12:41 ET), later within the same 15-18 UTC Kp interval.
+
+A secondary solar-wind chronology based on DSCOVR/SWPC data reports a long
+southward IMF Bz interval to about 16:45 UTC followed by a northward turn.
+The KOH2 cluster begins approximately 10 minutes after that reported turn.
+This timing is suggestive but is not treated as proof of causation.
+
+Internal amplitude-side cross-check
+-----------------------------------
+The same-receiver S4_CNO_PROXY is not independent and is not calibrated ISMR S4.
+Nevertheless, its 16:58 UTC minute is among the stronger daily minute-level
+S4-proxy excursions. This is supporting internal context only.
+
+Current interpretation
+----------------------
+The geometry-free event survives:
+  * dual-frequency common-mode cancellation,
+  * LLI/cycle-slip segmentation,
+  * 120-s segment-edge QC,
+  * SP3 geometry,
+  * elevation >=40 deg,
+  * and appears simultaneously on GPS and GLONASS links.
+
+Its timing also overlaps the strongest geomagnetic-storm interval and follows
+the Dst minimum closely.
+
+However, this is still insufficient to claim validated ionospheric
+scintillation. The next independent local/regional comparison should use
+KOH2 ROTI/DTEC/TEC and, if available, external scintillation measurements.
+
+The high-rate module should remain labelled EXPERIMENTAL.

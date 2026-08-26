@@ -1,0 +1,7 @@
+# Core dependencies for analysis/high_rate_10hz
+numpy
+pandas
+scipy
+
+# Optional: only when --parquet output is requested
+# pyarrow

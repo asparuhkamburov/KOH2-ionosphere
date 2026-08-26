@@ -1,0 +1,63 @@
+KOH2 FAST SCINTILLATION STREAMING BENCHMARK
+============================================================
+Input:
+  KOH200ATA_R_20250010000_01H_10Z_MO.rnx
+
+File size:
+  112.714 MiB
+
+Reference:
+  Existing GeoRinex-based daily result KOH2_001_2025_SCINT_1MIN.csv,
+  filtered to this source file.
+
+Fast script:
+  process_koh2_high_rate_scintillation_fast.py
+
+Syntax check:
+  PASS
+
+RINEX streaming summary:
+  Epochs: 36000
+  Satellite observation records: 621104
+  Retained L/S values: 2828022
+  L/S satellite-observable series: 118
+  Constellations: GPS (G), GLONASS (R)
+
+Fast output:
+  Rows: 2345
+  Valid sigma_phi_rad rows: 2342
+  Valid s4_cno_proxy rows: 2345
+
+Reference output:
+  Rows: 2345
+
+(window_start, sv, signal) keys exactly equal:
+  TRUE
+
+Maximum absolute numerical differences (reference vs fast):
+  sample_rate_hz   : 0
+  n_phase          : 0
+  sigma_phi_rad    : 1.2689895356743364e-08 rad
+  n_cn0            : 0
+  mean_cn0_dbhz    : 0
+  std_cn0_dbhz     : 0
+  s4_cno_proxy     : 1.4297590889000844e-14
+
+Measured timing in the test environment:
+  Streaming parse:       3.985 s
+  Metric calculation:    2.091 s
+  Internal total:        6.122 s
+  End-to-end wall time:  8.95 s
+
+Interpretation:
+  The streaming implementation reproduces the reference hourly table structure
+  exactly. S4/CN0 quantities agree at floating-point roundoff level.
+  sigma_phi_rad agrees to within approximately 1.3e-8 rad maximum absolute
+  difference for this test file.
+
+Scientific status:
+  PASS for one-hour implementation-equivalence benchmark.
+  This is NOT external ISMR validation.
+  The compatibility version deliberately retains independent hourly filtering,
+  so hour-boundary/filter-edge artifacts are not yet corrected. Elevation/
+  multipath screening and stronger phase-continuity QC are also pending.

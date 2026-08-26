@@ -1,0 +1,42 @@
+KOH2 CONTINUOUS TWO-HOUR BOUNDARY TEST
+======================================
+
+Input files:
+  KOH200ATA_R_20250010000_01H_10Z_MO.rnx
+  KOH200ATA_R_20250010100_01H_10Z_MO.rnx
+
+Boundary tested:
+  2025-01-01 01:00:00 UTC
+
+Rows at 01:00:
+  Old hourly implementation     : 43
+  Continuous implementation     : 43
+  Matched SV/signal rows        : 43
+
+SIGMA_PHI_RAD at 01:00:
+  Old hourly max                : 325.427228869 rad
+  Continuous max                : 1.32635782638 rad
+  Old hourly median             : 180.632564355 rad
+  Continuous median             : 0.127061360841 rad
+  Median absolute old-cont diff : 180.536572811 rad
+  Max absolute old-cont diff    : 325.277258501 rad
+
+S4_CNO_PROXY at 01:00:
+  Old hourly max                : 0.122892598524
+  Continuous max                : 0.121000702161
+
+Continuous QC edge flags at 01:00:
+  0 / 43
+
+Observed wall time:
+  21.158 s
+
+Interpretation:
+  In the continuous run, 01:00 UTC is no longer an hourly file/filter boundary.
+  Therefore any large reduction in sigma_phi_rad at 01:00 relative to the old
+  hourly implementation is direct evidence that the previous spike was caused
+  by filter restart / boundary handling rather than ionospheric scintillation.
+
+Scientific status:
+  This is an internal implementation/QC boundary test, not external ISMR
+  validation.

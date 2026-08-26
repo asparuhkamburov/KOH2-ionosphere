@@ -1,0 +1,24 @@
+KOH2 TARGETED vs FULL-DAY GEOMETRY-FREE IMPLEMENTATION CROSS-CHECK
+==========================================================================
+
+Representative target:
+  Date/time : 2025-01-01 14:16:00 UTC
+  Satellite : R02
+  Pair      : L1C - L2C
+
+Targeted diagnostic implementation:
+  sigma_phi_gf_equiv_rad = 0.0793336498826335
+
+Full-day continuous implementation:
+  sigma_phi_gf_equiv_rad = 0.0793336607155998
+
+Absolute difference:
+  1.0832966301776992e-08 rad
+
+Interpretation:
+  The independently executed targeted diagnostic and the full-day continuous
+  processor agree to approximately 1.1e-8 rad for this representative minute.
+
+Scope:
+  This is an implementation/numerical consistency check. It is not an
+  external validation of Phi60 or ionospheric scintillation.

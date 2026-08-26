@@ -1,0 +1,38 @@
+KOH2 CONTINUOUS GEOMETRY-FREE HIGH-RATE PHASE PROCESSING
+====================================================================
+Files processed: 24
+GPS pair: L1C - L2W/L2X auto per satellite
+GLONASS pair: L1C - L2C
+Window: 60.0 s
+High-pass cutoff: 0.100 Hz
+Butterworth order: 6
+Minimum window completeness: 0.80
+GF jump MAD factor: 12.00
+GF jump absolute floor: 0.0200 m
+Segment edge guard: 120.0 s
+Elevation mask: >= 30.0 deg
+
+Epoch records: 864000
+Satellite records: 15306248
+Paired geometry-free samples: 14257040
+Satellite GF series: 52
+Output minute rows: 23867
+QC-valid GF rows: 12605
+QC-valid GPS rows: 7342
+QC-valid GLONASS rows: 5263
+
+qc_gf_analysis definition:
+  finite sigma_phi_gf_equiv_rad
+  AND not within segment-edge guard
+  AND no LLI bit-0 event in window
+  AND no LLI bit-1 event in window
+  AND no robust GF jump in window
+  AND no nonzero RINEX epoch flag in window
+  AND SP3 geometry available
+  AND elevation_deg >= 30.0
+
+Scientific status:
+  SIGMA_PHI_GF_EQUIV_RAD is an experimental dual-frequency
+  geometry-free phase-fluctuation proxy, not reference-grade Phi60.
+  OLD_SINGLE_SIGMA_PHASE_A_RAD is retained only as a diagnostic
+  comparison and should not be interpreted as the final phase metric.

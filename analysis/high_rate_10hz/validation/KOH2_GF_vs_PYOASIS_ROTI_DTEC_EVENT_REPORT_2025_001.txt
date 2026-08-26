@@ -1,0 +1,82 @@
+KOH2 2025-001: GEOMETRY-FREE PHASE vs pyOASIS ROTI/DTEC
+======================================================================
+
+Scope
+-----
+Event window: 2025-01-01 16:50-17:10 UTC
+Pre window:   2025-01-01 16:30-16:50 UTC
+Post window:  2025-01-01 17:10-17:30 UTC
+Strict geometry sensitivity: elevation >= 40 deg
+
+Main result
+-----------
+The pyOASIS comparison provides PARTIAL, satellite-specific support for the
+geometry-free event, but it does not independently confirm the full
+cross-constellation event.
+
+R04:
+  event ROTI maximum             = 0.86942
+  R04 daily median ROTI >=40     = 0.06023
+  R04 daily p95 ROTI >=40        = 0.38620
+  event maximum / daily median   = 14.435
+  event includes p95 exceedance  = True
+
+  event |DTEC| maximum           = 4.93158
+  R04 daily median |DTEC| >=40   = 1.69705
+  R04 daily p95 |DTEC| >=40      = 3.91065
+  event maximum / daily median   = 2.906
+  event includes p95 exceedance  = True
+
+R21:
+  event ROTI maximum             = 0.06336
+  R21 daily median ROTI >=40     = 0.07256
+  R21 daily p95 ROTI >=40        = 0.20873
+
+  event |DTEC| maximum           = 0.49303
+  R21 daily median |DTEC| >=40   = 0.57283
+  R21 daily p95 |DTEC| >=40      = 2.89306
+
+Interpretation
+--------------
+1. R04 provides the strongest local independent-like cross-check:
+   * ROTI reaches 0.86942 near 17:06 UTC, the largest R04 ROTI value in the
+     elevation>=40 deg daily subset.
+   * |DTEC| reaches 4.93158 near 17:05:30 UTC, above the R04 daily p95 in
+     the elevation>=40 deg subset.
+   * The GF R04 enhancement occurs around 17:03-17:05 UTC, so the three
+     measures overlap within the different sampling windows.
+
+2. This R04 disturbance is broader than the exact 16:50-17:10 GF window.
+   Elevated R04 DTEC continues after 17:10, including 5.00066 at 17:13 UTC.
+   Therefore the data support a disturbed interval, not a sharp one-minute onset.
+
+3. R21 does NOT provide the same confirmation during 16:50-17:10:
+   its ROTI and |DTEC| remain below their own daily medians/p95 levels during
+   the strongest GF enhancement. R21's larger ROTI/DTEC excursions occur later.
+
+4. The pyOASIS GPS products available in the event interval contain G02 and
+   G21, but not the strongest GF GPS candidates G01 and G10. G02/G21 ROTI/DTEC
+   remain relatively quiet during 16:50-17:10. Therefore the pyOASIS products
+   cannot independently verify the G01/G10 part of the cross-constellation GF
+   cluster.
+
+5. Full-day nearest-time comparison at elevation>=40 gives only modest
+   relationship overall. Within-satellite rank correlations:
+  metric system  n_matched  n_satellites  pearson_raw  spearman_raw  within_satellite_rank_correlation
+    ROTI    ALL       1880            27     0.200066      0.340604                           0.196594
+    ROTI      G        410             7     0.031563     -0.006181                           0.003664
+    ROTI      R       1470            20     0.117712      0.260292                           0.250393
+ABS_DTEC    ALL       1898            27     0.137605      0.117626                           0.282535
+ABS_DTEC      G        414             7    -0.113702     -0.140806                          -0.036083
+ABS_DTEC      R       1484            20     0.147226      0.195103                           0.371409
+
+Conclusion
+----------
+The ROTI/DTEC comparison strengthens the interpretation that at least part of
+the 16:50-17:10 geometry-free activity is ionospheric/disturbance-related,
+especially for R04. It does NOT yet validate the entire multi-satellite GF
+cluster as ionospheric scintillation.
+
+The high-rate module should remain EXPERIMENTAL. The most defensible current
+wording is "geometry-free phase-fluctuation proxy associated with a disturbed
+ionospheric interval", not validated Phi60/scintillation.
