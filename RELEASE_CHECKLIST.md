@@ -16,7 +16,9 @@
 - [x] GPL-3.0-or-later selected and `LICENSE` added.
 - [x] External software citations documented in `SOFTWARE_CITATIONS.md`.
 - [x] AI-assisted development disclosure added to the root `README.md`.
-- [x] High-rate 10 Hz material excluded from the current validated public release.
+- [x] High-rate 10 Hz module included with explicit **EXPERIMENTAL** status and excluded from repository `PASS` claims.
+- [x] High-rate README/STATUS/VALIDATION documents added with explicit warnings that `SIGMA_PHI_GF_EQUIV_RAD` is not validated `Phi60` and `S4_CNO_PROXY` is not calibrated `S4`.
+- [x] Representative 2025-01-01 high-rate implementation, boundary, elevation-sensitivity, LLI, geometry-free, and ROTI/DTEC event checks documented.
 
 ## Required before public GitHub / Zenodo release
 

@@ -16,8 +16,9 @@ KOH2-ionosphere/
 │   ├── madrigal_validation/
 │   ├── pyiri_context/
 │   │   └── common_hour/
-│   └── solar_cycle/
-│       └── figures/
+│   ├── solar_cycle/
+│   │   └── figures/
+│   └── high_rate_10hz/
 ├── README.md
 ├── VALIDATION_STATUS.md
 ├── RELEASE_CHECKLIST.md
@@ -57,6 +58,8 @@ preprocessing
        analysis, sensitivity, bootstrap
 ```
 
+The separate `analysis/high_rate_10hz/` branch processes 10 Hz RINEX observations as an **EXPERIMENTAL** geometry-free phase-fluctuation workflow. It is not included in the validated TEC `PASS` claims.
+
 ## Validation status
 
 The principal publication workflows are validated against their operational implementations. Validation scope differs by module and is stated explicitly; representative-day validation must not be interpreted as whole-archive checksum validation.
@@ -75,6 +78,7 @@ The principal publication workflows are validated against their operational impl
 | Solar sensitivity analysis | PASS | Operational vs publication CSV equality |
 | Lagged bootstrap analysis | PASS | Operational vs publication CSV equality |
 | Monthly/figure suite | PASS | Numerical CSV products exactly equal; rendered images excluded from bit-for-bit checks |
+| High-rate 10 Hz phase-fluctuation analysis | **EXPERIMENTAL** | 2025-01-01 implementation/QC/sensitivity/event-level checks; not validated Phi60/S4 |
 
 See `VALIDATION_STATUS.md` for the consolidated record.
 
@@ -86,6 +90,9 @@ See `VALIDATION_STATUS.md` for the consolidated record.
 - The direct **IGS–Madrigal** comparison is a reference-product diagnostic.
 - Solar and geomagnetic findings should be described as **associations/relationships**, not causal effects without a separate causal design.
 - No empirical TEC bias correction is applied in the publication workflow.
+- The high-rate `SIGMA_PHI_GF_EQUIV_RAD` product is an **experimental dual-frequency geometry-free phase-fluctuation proxy**, not a validated ISMR `Phi60` index.
+- `S4_CNO_PROXY` is an **uncalibrated C/N0-derived proxy**, not calibrated or standard ISMR `S4`.
+- The earlier single-frequency high-rate `SIGMA_PHI_RAD` is retained only as a diagnostic because cross-frequency testing showed substantial nondispersive/common-mode content.
 
 ## Data and external software
 
@@ -149,6 +156,6 @@ Third-party scientific software used by the workflow must be cited separately; s
 
 ## Release status
 
-This repository is being prepared for GitHub/Zenodo archival release. Author metadata, third-party software citations, AI-assisted development disclosure, and the GPL-3.0-or-later licence are documented.
+This repository is being prepared for GitHub/Zenodo archival release. The high-rate 10 Hz module is included explicitly as EXPERIMENTAL and remains outside the validated `PASS` claims. Author metadata, third-party software citations, AI-assisted development disclosure, and the GPL-3.0-or-later licence are documented.
 
 Before archival publication, add the final GitHub repository URL, create the release tag/version, add the release date/version metadata to `CITATION.cff`, and insert the Zenodo DOI after deposition. See `RELEASE_CHECKLIST.md`.

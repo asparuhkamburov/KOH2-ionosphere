@@ -227,8 +227,69 @@ Rendered PNG/PDF/SVG files are intentionally not used for bit-for-bit validation
 
 ## High-rate 10 Hz analysis
 
-Status: **NUMERICAL VALIDATION PENDING**.
+Status: **EXPERIMENTAL — reproducible/internal checks completed; not validated Phi60/S4**.
 
-The high-rate workflow calculates phase-fluctuation estimates (`sigma_phi`) and an `S4_CNO_PROXY`. The latter is an uncalibrated proxy derived from RINEX Sxx/C/N0-like observables and must not be described as a calibrated/reference ISMR S4 index.
+Representative date: 2025-01-01 (DOY 001).
 
-A numerical-equivalence test was not completed because GeoRinex parsing of the high-rate RINEX data was a practical performance bottleneck. This block is excluded from validated-release claims until a successful equivalence test is recorded.
+Completed checks include:
+
+```text
+one-hour streaming implementation equivalence
+two-hour continuous boundary-artifact test
+120 s arc-edge sensitivity
+SP3 geometry/elevation screening
+RINEX LLI inspection
+cross-frequency common-mode diagnostic
+targeted R02 geometry-free cross-check
+full 24-hour continuous geometry-free run
+30/35/40/45 deg elevation sensitivity
+event-level pyOASIS ROTI/DTEC comparison
+```
+
+One-hour streaming equivalence reproduced 2,345 reference rows with exact
+`(window_start, sv, signal)` keys. Maximum numerical differences were
+approximately `1.27e-8 rad` for the legacy `sigma_phi_rad` and `1.43e-14` for
+`S4_CNO_PROXY`.
+
+The old hourly implementation produced hundreds-of-radians phase spikes at
+hour boundaries. Continuous processing removed the 01:00 UTC artifact
+(old maximum `325.427 rad`; continuous maximum `1.326 rad`), demonstrating
+that the original spike was a filter-restart artifact.
+
+Cross-frequency scaling showed that the remaining single-frequency
+`SIGMA_PHI_RAD` was strongly affected by nondispersive/common-mode content.
+The primary experimental phase metric was therefore changed to a
+dual-frequency geometry-free quantity:
+
+```text
+SIGMA_PHI_GF_EQUIV_RAD
+```
+
+For the representative 24-hour run:
+
+```text
+files processed                           24
+paired GF samples                 14,257,040
+satellite GF series                       52
+output minute rows                    23,867
+QC-valid GF rows                      12,605
+QC-valid GPS rows                      7,342
+QC-valid GLONASS rows                  5,263
+median GF sigma                      0.066473 rad
+p95                                  0.096742 rad
+p99                                  0.118494 rad
+```
+
+A targeted R02 diagnostic and the full-day processor agreed to approximately
+`1.1e-8 rad` for the 2025-01-01 14:16 UTC representative minute.
+
+Event-level comparison around 16:50–17:10 UTC provides partial
+satellite-specific support from pyOASIS ROTI/DTEC, especially for R04, but
+does not independently validate the full multi-satellite event as
+scintillation.
+
+`S4_CNO_PROXY` remains an uncalibrated C/N0-derived proxy.
+
+The high-rate module is included in the repository for transparency and
+reproducibility but is **outside the repository's PASS validation claims**.
+See `analysis/high_rate_10hz/README.md`, `STATUS.md`, and `VALIDATION.md`.
