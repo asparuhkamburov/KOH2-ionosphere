@@ -5,6 +5,7 @@ title: "KOH2 GNSS Ionospheric TEC Processing and Validation Scripts"
 type: software
 version: "1.0.0"
 date-released: 2026-08-26
+doi: "10.5281/zenodo.22106689"
 
 authors:
   - family-names: "Kamburov"
