@@ -21,13 +21,13 @@ the two KOH2 processors is actually an inter-reference effect.
 Data reuse
 ----------
 Madrigal:
-    E:\KOH2data\TEC_VALIDATION_MADRIGAL_2019_2026\
+    <MADRIGAL_VALIDATION_ROOT>\
         _MADRIGAL_CACHE\VTEC_REGIONAL_LOCAL\YYYY\
         madrigal_regional_local_YYYY_DDD.parquet
 
 IGS:
     Reuses the validated V4 IGS validator and its cached IONEX files:
-    E:\KOH2data\TEC_VALIDATION_IGS_2019_2026\_IGS_IONEX
+    <IGS_IONEX_ROOT>
 
 No PyTECGg or pyOASIS values are used in the statistics.
 
@@ -43,7 +43,7 @@ the prior KOH2 comparison and represents the broad KOH2/IPP neighborhood.
 
 Outputs
 -------
-E:\KOH2data\TEC_REFERENCE_IGS_MADRIGAL_2019_2026
+<IGS_MADRIGAL_REFERENCE_ROOT>
 
     KOH2_2019_2026_IGS_vs_Madrigal_daily_statistics.csv
     KOH2_2019_2026_IGS_vs_Madrigal_yearly_point_weighted_summary.csv

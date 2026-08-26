@@ -29,7 +29,7 @@ python validate_tec_igs_2019_2026.py ^
 python validate_tec_igs_2019_2026.py ^
   --data-root "E:\KOH2data" ^
   --output-root "D:\path\to\TEST_IGS_GITHUB" ^
-  --ionex-cache-root "E:\KOH2data\TEC_VALIDATION_IGS_2019_2026\_IGS_IONEX" ^
+  --ionex-cache-root "<IONEX_CACHE_ROOT>" ^
   --year 2025 ^
   --date 2025-01-01
 ```

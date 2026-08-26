@@ -1,6 +1,6 @@
 RINEX PHASE LLI / GEOMETRY-FREE DIAGNOSTIC — R02
 ================================================================
-Input: D:\MGU\Projects\AntarcticaGNSS\KOH2data\pyOASIS\2025_1day\01\01\RINEX\10Z_01H\KOH200ATA_R_20250011400_01H_10Z_MO.rnx
+Input: <10HZ_RINEX_ROOT>\KOH200ATA_R_20250011400_01H_10Z_MO.rnx
 Interval: 2025-01-01 14:05:00 -> 2025-01-01 14:25:00
 Selected carriers: L1C, L2C
 Phase samples: 24002

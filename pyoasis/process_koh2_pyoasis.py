@@ -25,13 +25,13 @@ Example
 python process_koh2_pyoasis.py ^
     --year 2025 ^
     --date 2025-01-01 ^
-    --data-root "E:\KOH2data\pyOASIS" ^
+    --data-root "<PYOASIS_DATA_ROOT>" ^
     --gfzrnx "D:\GNSS\gfzrnx_2.2.0_win10_64.exe"
 
 The --data-root argument may point either to:
-    E:\KOH2data\pyOASIS
+    <PYOASIS_DATA_ROOT>
 or directly to:
-    E:\KOH2data\pyOASIS\2023
+    <PYOASIS_DATA_ROOT>\2023
 
 Notes
 -----

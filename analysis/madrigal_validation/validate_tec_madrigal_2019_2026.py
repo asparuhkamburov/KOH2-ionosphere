@@ -59,7 +59,7 @@ Place both scripts in the same directory.
 
 OUTPUT ROOT
 -----------
-    E:\KOH2data\TEC_VALIDATION_MADRIGAL_2019_2026
+    <MADRIGAL_VALIDATION_ROOT>
 
 MADRIGAL DATA ACCESS
 --------------------

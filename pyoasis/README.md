@@ -82,7 +82,7 @@ Example:
 python process_koh2_pyoasis.py ^
  --year 2025 ^
  --data-root "F:\KOH2data" ^
- --gfzrnx "D:\MGU\Projects\AntarcticaGNSS\KOH2data\gfzrnx_2.2.0_win10_64.exe"
+ --gfzrnx "<GFZRNX_EXE>"
 ```
 
 The data root may be either the parent directory containing annual folders or

@@ -334,7 +334,7 @@ def get_cddis_session():
         raise RuntimeError(
             "Earthdata credentials were not found.\n"
             "Expected a Windows _netrc file such as:\n"
-            r"  C:\Users\<username>\_netrc" "\n"
+            r"  <USER_HOME>\_netrc" "\n"
             "containing:\n"
             "  machine urs.earthdata.nasa.gov login YOUR_LOGIN password YOUR_PASSWORD"
         )
@@ -595,7 +595,7 @@ def download_ionex(year: int, doy: int) -> Path:
     pyOASIS_OUTPUT. IONEX products are therefore downloaded into the validator's
     own cache under:
 
-        E:\KOH2data\TEC_VALIDATION_IGS_2019_2026\_IGS_IONEX\<year>
+        <IONEX_CACHE_ROOT>\<year>
 
     Robustness:
     - reuse already decompressed/downloaded files;
