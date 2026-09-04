@@ -1,21 +1,12 @@
 cff-version: 1.2.0
 message: "If you use this software, please cite it using the metadata provided in this file."
-
 title: "KOH2 GNSS Ionospheric TEC Processing and Validation Scripts"
 type: software
-version: "1.0.0"
-date-released: 2026-08-26
-doi: "10.5281/zenodo.22106689"
-
 authors:
   - family-names: "Kamburov"
     given-names: "Asparuh"
     orcid: "https://orcid.org/0000-0002-6226-0145"
-
-repository-code: "https://github.com/asparuhkamburov/KOH2-ionosphere"
-
 license: "GPL-3.0-or-later"
-
 keywords:
   - GNSS
   - ionosphere

@@ -1,3 +1,11 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
+# Copyright (C) 2026 Asparuh Kamburov
+#
+# Original KOH2-ionosphere workflow/orchestration code.
+# PyTECGg is a separately installed external dependency and is not vendored
+# in this repository. Upstream PyTECGg is licensed under GPL-3.0-or-later:
+# https://github.com/viventriglia/PyTECGg
+
 """
 PyTECGg batch processor for YEAR/MM/DD/RINEX archives.
 

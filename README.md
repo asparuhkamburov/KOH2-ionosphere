@@ -25,7 +25,11 @@ KOH2-ionosphere/
 ├── SOFTWARE_CITATIONS.md
 ├── CITATION.cff
 ├── LICENSE
+├── LICENSE_NOTICE.md
+├── THIRD_PARTY_LICENSES.md
 ├── requirements.txt
+├── requirements-pyoasis.txt
+├── requirements-pytecgg.txt
 └── .gitignore
 ```
 
@@ -118,7 +122,7 @@ See `SOFTWARE_CITATIONS.md` for full details.
 
 ## Python environment
 
-The scripts were developed and tested in the project Python environment. A broad dependency list is provided in `requirements.txt`; before archival publication, freeze the exact tested environment if strict environment reproduction is required.
+The scripts were developed and tested in project Python environments. Workflow-specific direct dependencies for the two principal TEC-processing wrappers are provided in `requirements-pyoasis.txt` and `requirements-pytecgg.txt`. The root `requirements.txt` is retained as a backward-compatible convenience entry point for the pyOASIS wrapper. Analysis modules may require additional packages documented in their module READMEs. Before archival publication, freeze the exact tested environment(s) if strict environment reproduction is required.
 
 Syntax checking for an individual script can be performed with:
 
@@ -138,15 +142,21 @@ The scientific workflow, processing parameters, validation design, interpretatio
 
 The author takes responsibility for the released software and its scientific use.
 
-## License
+## License and third-party software
 
-The original source code authored for the KOH2 workflow is released under the **GNU General Public License v3.0 or later (GPL-3.0-or-later)**.
+Except where otherwise noted, original source code authored specifically for the KOH2-ionosphere workflow is released under the **GNU General Public License v3.0 or later (GPL-3.0-or-later)**.
 
 Copyright (C) 2026 Asparuh Kamburov.
 
-Third-party software used by the workflow, including GFZRNX, PyTECGg, and pyOASIS/OASIS, is not redistributed by this repository and remains subject to its respective licence terms.
+The repository uses separately distributed third-party scientific software that retains its own licensing terms and is not relicensed by KOH2-ionosphere. In particular:
 
-See `LICENSE` for the GPLv3 text and `SOFTWARE_CITATIONS.md` for third-party software attribution and citation details.
+- **PyTECGg** is an external Python dependency licensed upstream under **GPL-3.0-or-later**.
+- **OASIS / pyOASIS** is an external Python dependency licensed upstream under **CC BY-NC 4.0**. The upstream non-commercial-use condition remains applicable to pyOASIS itself.
+- **GFZRNX** is an external executable distributed by GFZ under its own license terms; it is not included in this repository.
+
+The KOH2 `pyoasis` and `pytecgg` scripts are workflow/orchestration wrappers. The current repository does not vendor the upstream source code of OASIS/pyOASIS or PyTECGg.
+
+See [`LICENSE`](LICENSE) for the GPLv3 text, [`LICENSE_NOTICE.md`](LICENSE_NOTICE.md) for the licensing boundary, [`THIRD_PARTY_LICENSES.md`](THIRD_PARTY_LICENSES.md) for the third-party license summary, and [`SOFTWARE_CITATIONS.md`](SOFTWARE_CITATIONS.md) for scientific attribution and citation guidance.
 
 ## Citing this repository
 
@@ -154,18 +164,8 @@ The `CITATION.cff` file contains citation metadata for this repository itself.
 
 Third-party scientific software used by the workflow must be cited separately; see `SOFTWARE_CITATIONS.md`.
 
-## DOI
-
-Version 1.0.0:
-
-https://doi.org/10.5281/zenodo.22106689
-
-All versions:
-
-https://doi.org/10.5281/zenodo.22106688
-
 ## Release status
 
-This repository is being prepared for GitHub/Zenodo archival release. The high-rate 10 Hz module is included explicitly as EXPERIMENTAL and remains outside the validated `PASS` claims. Author metadata, third-party software citations, AI-assisted development disclosure, and the GPL-3.0-or-later licence are documented.
+This repository is being prepared for GitHub/Zenodo archival release. The high-rate 10 Hz module is included explicitly as EXPERIMENTAL and remains outside the validated `PASS` claims. Author metadata, third-party software citations and licensing boundaries, AI-assisted development disclosure, and the GPL-3.0-or-later licence are documented.
 
 Before archival publication, add the final GitHub repository URL, create the release tag/version, add the release date/version metadata to `CITATION.cff`, and insert the Zenodo DOI after deposition. See `RELEASE_CHECKLIST.md`.

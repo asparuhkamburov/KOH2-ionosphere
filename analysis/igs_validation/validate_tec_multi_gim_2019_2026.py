@@ -36,12 +36,12 @@ Residual convention:
     method VTEC - reference GIM VTEC
 
 Root production data:
-    <OBS_ROOT>\2019
+    E:\KOH2data\2019
     ...
-    <OBS_ROOT>\2026
+    E:\KOH2data\2026
 
 Outputs:
-    <MULTIGIM_OUTPUT_ROOT>
+    E:\KOH2data\TEC_VALIDATION_MULTI_GIM_2019_2026
 """
 
 from pathlib import Path

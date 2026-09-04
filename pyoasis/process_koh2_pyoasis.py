@@ -1,4 +1,11 @@
 #!/usr/bin/env python3
+# SPDX-License-Identifier: GPL-3.0-or-later
+# Copyright (C) 2026 Asparuh Kamburov
+#
+# Original KOH2-ionosphere workflow/orchestration code.
+# pyOASIS/OASIS is a separately installed external dependency and is not
+# vendored or redistributed in this file. Upstream OASIS is licensed under
+# CC BY-NC 4.0: https://github.com/giorgiopicanco/OASIS
 from __future__ import annotations
 
 r"""
@@ -25,13 +32,13 @@ Example
 python process_koh2_pyoasis.py ^
     --year 2025 ^
     --date 2025-01-01 ^
-    --data-root "<PYOASIS_DATA_ROOT>" ^
+    --data-root "E:\KOH2data\pyOASIS" ^
     --gfzrnx "D:\GNSS\gfzrnx_2.2.0_win10_64.exe"
 
 The --data-root argument may point either to:
-    <PYOASIS_DATA_ROOT>
+    E:\KOH2data\pyOASIS
 or directly to:
-    <PYOASIS_DATA_ROOT>\2023
+    E:\KOH2data\pyOASIS\2023
 
 Notes
 -----

@@ -14,6 +14,10 @@
 - [x] Raw GNSS data, downloaded caches, credentials, and generated result archives excluded from the source repository.
 - [x] Author metadata and ORCID added to `CITATION.cff`.
 - [x] GPL-3.0-or-later selected and `LICENSE` added.
+- [x] Licensing boundary documented in `LICENSE_NOTICE.md`.
+- [x] Third-party license summary documented in `THIRD_PARTY_LICENSES.md`.
+- [x] pyOASIS and PyTECGg wrappers marked with SPDX/provenance headers.
+- [x] Workflow-specific `requirements-pyoasis.txt` and `requirements-pytecgg.txt` added.
 - [x] External software citations documented in `SOFTWARE_CITATIONS.md`.
 - [x] AI-assisted development disclosure added to the root `README.md`.
 - [x] High-rate 10 Hz module included with explicit **EXPERIMENTAL** status and excluded from repository `PASS` claims.

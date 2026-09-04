@@ -1,0 +1,10 @@
+# Direct dependencies for pyoasis/process_koh2_pyoasis.py
+#
+# pyOASIS is a separately distributed third-party dependency licensed by its
+# upstream project under CC BY-NC 4.0. Installing it with pip does not make it
+# part of the KOH2-ionosphere GPL-3.0-or-later source distribution.
+#
+# Pin the exact versions from the validated environment when a strict archival
+# environment freeze is required.
+requests
+pyOASIS

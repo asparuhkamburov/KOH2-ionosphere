@@ -72,9 +72,11 @@ Because the project currently labels the manuscript as submitted, users should c
 
 ## Licensing note
 
-The KOH2-authored source code in this repository is released under GPL-3.0-or-later.
+Except where otherwise indicated, KOH2-authored source code in this repository is released under GPL-3.0-or-later.
 
-This repository does not relicense third-party software. GFZRNX, PyTECGg, pyOASIS/OASIS, and other external dependencies remain governed by their own licence terms.
+This repository does not relicense third-party software. GFZRNX, PyTECGg, pyOASIS/OASIS, and other external dependencies remain governed by their own license terms. OASIS/pyOASIS is currently distributed upstream under CC BY-NC 4.0; PyTECGg is currently distributed upstream under GPL-3.0-or-later.
+
+For the repository's licensing boundary and third-party summary, see `LICENSE_NOTICE.md` and `THIRD_PARTY_LICENSES.md`.
 
 ## How these citations relate to CITATION.cff
 

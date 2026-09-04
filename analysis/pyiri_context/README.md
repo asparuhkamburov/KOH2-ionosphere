@@ -26,7 +26,7 @@ independent test of the relationship between TEC and solar activity.
 python run_pyiri_koh2_2019_2026.py ^
   --data-root "F:\KOH2data" ^
   --output-root "D:\path\to\PYIRI_OUTPUT" ^
-  --indices-root "<PYIRI_INDICES_ROOT>" ^
+  --indices-root "F:\KOH2data\TEC_REFERENCE_PYIRI_2019_2026\_INDICES" ^
   --year 2025 ^
   --date 2025-01-01
 ```

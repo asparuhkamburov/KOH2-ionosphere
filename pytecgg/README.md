@@ -94,6 +94,17 @@ KOH2_001_2025_PyTECGg_MANIFEST.txt
 
 Daily PNG plots are also generated.
 
+## External dependency and licensing boundary
+
+`process_koh2_pytecgg.py` contains original KOH2 workflow and orchestration
+code and uses the separately installed PyTECGg package through its Python API.
+The upstream PyTECGg source code is not vendored in this repository.
+
+The KOH2 wrapper is released as part of KOH2-ionosphere under
+GPL-3.0-or-later. PyTECGg remains third-party software under its upstream
+GPL-3.0-or-later license. See the repository-root `LICENSE_NOTICE.md` and
+`THIRD_PARTY_LICENSES.md`.
+
 ## Validation status
 
 The publication-oriented wrapper was validated on KOH2 data for 2025-01-01

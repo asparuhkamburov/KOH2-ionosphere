@@ -34,7 +34,7 @@ PyTECGg matching:
 
 OUTPUT
 ------
-<COMMON_HOUR_OUTPUT_ROOT>
+E:\KOH2data\TEC_COMMON_HOUR_PYIRI_2019_2026
 
     KOH2_2019_2026_common_hour_values.csv
     KOH2_2019_2026_common_hour_daily_statistics.csv

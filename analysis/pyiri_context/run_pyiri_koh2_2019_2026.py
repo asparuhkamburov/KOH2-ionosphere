@@ -55,7 +55,7 @@ provided through command-line arguments.
 
 OUTPUT
 ------
-<PYIRI_OUTPUT_ROOT>
+E:\KOH2data\TEC_REFERENCE_PYIRI_2019_2026
 
     HOURLY\
         KOH2_YYYY_DDD_PyIRI_URSI_hourly.csv

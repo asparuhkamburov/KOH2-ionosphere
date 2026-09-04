@@ -1,4 +1,10 @@
-# Minimal direct Python dependencies for process_koh2_pyoasis.py
-# Pin exact tested versions before the monograph release.
-requests
-pyOASIS
+# Backward-compatible convenience requirements for the pyOASIS wrapper.
+#
+# Prefer the workflow-specific files:
+#   requirements-pyoasis.txt
+#   requirements-pytecgg.txt
+#
+# The full analysis tree uses additional dependencies documented in the
+# corresponding module READMEs. Exact tested versions should be frozen from the
+# validated environment for strict archival reproducibility.
+-r requirements-pyoasis.txt

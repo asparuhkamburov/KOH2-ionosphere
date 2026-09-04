@@ -1,0 +1,11 @@
+# Direct dependencies used by pytecgg/process_koh2_pytecgg.py
+#
+# PyTECGg is a separately distributed third-party dependency licensed upstream
+# under GPL-3.0-or-later.
+#
+# Pin the exact versions from the validated environment when a strict archival
+# environment freeze is required.
+matplotlib
+pandas
+polars
+pytecgg

@@ -82,7 +82,7 @@ Example:
 python process_koh2_pyoasis.py ^
  --year 2025 ^
  --data-root "F:\KOH2data" ^
- --gfzrnx "<GFZRNX_EXE>"
+ --gfzrnx "D:\MGU\Projects\AntarcticaGNSS\KOH2data\gfzrnx_2.2.0_win10_64.exe"
 ```
 
 The data root may be either the parent directory containing annual folders or
@@ -120,10 +120,19 @@ repository.
 
 ## Scientific role
 
-This script is a processing wrapper. It does not redefine the scientific
-algorithms implemented by pyOASIS; it automates input selection, orbit
-preparation, file staging and execution of the standard pyOASIS processing
-functions.
+This script contains original KOH2 workflow and orchestration code. It uses the
+public API of the separately installed pyOASIS package but does not include,
+redistribute, or modify the pyOASIS source code. The scientific algorithms for
+RINEX cleaning, geometry-free levelling, ROTI, DTEC, SIDX, and TEC estimation
+are executed by pyOASIS itself; the wrapper automates input selection, orbit
+preparation, file staging, execution, and KOH2-specific archive handling.
+
+### Licensing boundary
+
+The KOH2 wrapper is part of the GPL-3.0-or-later KOH2-ionosphere source code.
+OASIS/pyOASIS remains a separate third-party dependency under its upstream
+CC BY-NC 4.0 license, including the applicable non-commercial-use condition.
+See the repository-root `LICENSE_NOTICE.md` and `THIRD_PARTY_LICENSES.md`.
 
 ## Validation
 

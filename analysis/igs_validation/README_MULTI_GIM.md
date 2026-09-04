@@ -27,7 +27,7 @@ residual definition and statistics.
 python validate_tec_multi_gim_2019_2026.py ^
   --data-root "F:\KOH2data" ^
   --output-root "D:\path\to\TEST_MULTI_GIM\OUTPUT" ^
-  --gim-cache-root "<MULTIGIM_IONEX_CACHE_ROOT>" ^
+  --gim-cache-root "F:\KOH2data\TEC_VALIDATION_MULTI_GIM_2019_2026\_IONEX" ^
   --year 2025 ^
   --date 2025-01-01
 ```
