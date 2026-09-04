@@ -122,7 +122,7 @@ See `SOFTWARE_CITATIONS.md` for full details.
 
 ## Python environment
 
-The scripts were developed and tested in project Python environments. Workflow-specific direct dependencies for the two principal TEC-processing wrappers are provided in `requirements-pyoasis.txt` and `requirements-pytecgg.txt`. The root `requirements.txt` is retained as a backward-compatible convenience entry point for the pyOASIS wrapper. Analysis modules may require additional packages documented in their module READMEs. Before archival publication, freeze the exact tested environment(s) if strict environment reproduction is required.
+The scripts were developed and tested in project Python environments. Workflow-specific direct dependencies for the two principal TEC-processing wrappers are provided in `requirements-pyoasis.txt` and `requirements-pytecgg.txt`. The root `requirements.txt` is retained as a backward-compatible convenience entry point for the pyOASIS wrapper. Analysis modules may require additional packages documented in their module READMEs. For strict environment reproduction, exact package versions from the validated processing environment may additionally be frozen and archived. The workflow-specific direct dependencies are provided in the corresponding requirements files.
 
 Syntax checking for an individual script can be performed with:
 
@@ -160,12 +160,41 @@ See [`LICENSE`](LICENSE) for the GPLv3 text, [`LICENSE_NOTICE.md`](LICENSE_NOTIC
 
 ## Citing this repository
 
-The `CITATION.cff` file contains citation metadata for this repository itself.
+The final public software release is:
 
-Third-party scientific software used by the workflow must be cited separately; see `SOFTWARE_CITATIONS.md`.
+**KOH2 GNSS Ionospheric TEC Processing and Validation Scripts, version 1.0.1**
+
+**Version-specific DOI:**  
+https://doi.org/10.5281/zenodo.22309322
+
+**Concept DOI — all versions:**  
+https://doi.org/10.5281/zenodo.22106688
+
+When exact reproducibility is required, cite the version-specific DOI corresponding
+to the software version used in the analysis.
+
+The `CITATION.cff` file contains machine-readable citation metadata for this
+repository.
+
+Third-party scientific software used by the workflow must be cited separately;
+see `SOFTWARE_CITATIONS.md`.
 
 ## Release status
 
-This repository is being prepared for GitHub/Zenodo archival release. The high-rate 10 Hz module is included explicitly as EXPERIMENTAL and remains outside the validated `PASS` claims. Author metadata, third-party software citations and licensing boundaries, AI-assisted development disclosure, and the GPL-3.0-or-later licence are documented.
+**Version 1.0.1** is the final public archival release of the publication-oriented
+KOH2-ionosphere workflow.
 
-Before archival publication, add the final GitHub repository URL, create the release tag/version, add the release date/version metadata to `CITATION.cff`, and insert the Zenodo DOI after deposition. See `RELEASE_CHECKLIST.md`.
+The release is archived in Zenodo under the version-specific DOI:
+
+**https://doi.org/10.5281/zenodo.22309322**
+
+The Zenodo concept DOI representing all versions of KOH2-ionosphere is:
+
+**https://doi.org/10.5281/zenodo.22106688**
+
+The high-rate 10 Hz module remains explicitly classified as **EXPERIMENTAL** and
+is excluded from the validated `PASS` claims.
+
+Author metadata, third-party software citations, licensing boundaries,
+AI-assisted development disclosure, and the GPL-3.0-or-later license are
+documented in the repository.
